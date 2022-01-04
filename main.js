@@ -9,9 +9,13 @@ console.log(wordArray)
 //showWord.innerHTML = charUnderscore;
 for(let i = 0; wordArray[i]; i++){
     const arrayString = wordArray[i].toString([i]);
-    const appendString = document.createElement('div') ;
+    const appendString = document.createElement('input');
+    appendString.setAttribute('type' , 'text');
+    appendString.setAttribute('maxlength' , '1');
+    appendString.classList.add('character');
     document.body.appendChild(appendString);
-    appendString.innerHTML = arrayString; 
+
+    //appendString.innerHTML = arrayString.replace(/[a-z]/g , '_'); 
     showWord.appendChild(appendString);
 
     console.log(appendString)
@@ -20,7 +24,5 @@ for(let i = 0; wordArray[i]; i++){
 
 
 
-// Da prodjes kroz petlju i da ispises svako slovo u konsol logu
-// Da za svako slovo napravis div u words elementu
-//umesto diva da bude input 
-//i staviti classu na input
+//da se srede stilovi 
+//da se namesti samo jedno slovo
