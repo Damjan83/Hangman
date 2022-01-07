@@ -40,12 +40,12 @@ body{
 }
 .characters {
   display: flex;
+  align-items: center;
+  justify-content: center;
   width: 60px;
-  height: 1px;
-  background-color: black;
+  height: 60px;
+  background-color: transparent;
+  border-bottom: 1px solid black;
   margin-right: 10px;
 
-}
-.string {
-  margin-bottom: 50px;
 }
