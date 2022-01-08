@@ -28,7 +28,11 @@ input.addEventListener('keydown', (event) => {
     if(event.code === 'Enter'){                  
         test();
     }
+    clearInput();
 })
+ function clearInput() {
+     document.getElementById('input-value').value = '';
+ }
 
-// Treba da se obrise iz inputa vrednost na enter
+
 // Ne postojeca slova da se ispisu u divu sa strane
