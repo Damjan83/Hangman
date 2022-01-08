@@ -1,43 +1,34 @@
 const showWord = document.querySelector('.words');
-const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
+const input = document.querySelector('.input');
+const randomWord = document.querySelector('.random__characters')
 
+const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
 let randomString = words[Math.floor(Math.random() * words.length)]
 const wordArray = randomString.split('');
-const stringInput = document.createElement('input');
 
-for(let i = 0; wordArray[i]; i++){
+for(let i = 0; i < wordArray.length; i++){
     const appendString = document.createElement('div');
-    appendString.classList.add('characters');
-    document.body.appendChild(appendString);
-    showWord.appendChild(appendString);
-        
+    appendString.classList.add('characters');  
+    randomWord.appendChild(appendString);
 }
-    stringInput.setAttribute('type' , 'text');
-    stringInput.setAttribute('maxlength', '1');
-    stringInput.setAttribute('placeholder' , 'Enter letter');
-    stringInput.classList.add('string');
-    document.body.appendChild(stringInput);
-    showWord.appendChild(stringInput);
-    
-    stringInput.addEventListener('keyup' , (event) => {
-        if(event.code === 'Enter'){                  
-            const inputValue = document.querySelector('input').value;
-            if(randomString.includes(inputValue)){
-                document.querySelector('.characters').innerHTML = inputValue;
-            }
-            for(let i = 0; wordArray[i]; i++){
-                const wordArraySplit = wordArray[i].split('');
-                console.log(wordArraySplit)
-                if(inputValue == wordArraySplit){
-                    console.log('test');
-                    document.querySelector('.characters').innerHTML = wordArraySplit;
-                }
-            }
+
+function test() {
+    const lineElements = document.querySelectorAll('.characters');
+    const inputValue = input.value;
+    for(let i = 0; i < wordArray.length; i++){
+        const word = wordArray[i];
+
+        if(inputValue == word){
+            lineElements[i].innerHTML = inputValue
         }
-
-    })
+    }
+}
     
-    
+input.addEventListener('keydown', (event) => {                 
+    if(event.code === 'Enter'){                  
+        test();
+    }
+})
 
-
-
+// Treba da se obrise iz inputa vrednost na enter
+// Ne postojeca slova da se ispisu u divu sa strane

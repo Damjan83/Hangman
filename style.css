@@ -38,6 +38,7 @@ body{
     align-items: center;
     justify-content: center;
 }
+
 .characters {
   display: flex;
   align-items: center;
@@ -47,5 +48,18 @@ body{
   background-color: transparent;
   border-bottom: 1px solid black;
   margin-right: 10px;
+}
 
+.input__word {
+  margin-right: 50px;
+}
+
+.random__characters {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+}
+.letters {
+  width: 200px;
+  height: 100%;
 }
