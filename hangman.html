@@ -7,13 +7,19 @@
   <title>Hangman</title>
 </head>
   <body>
-    
-    <div class="words">
+    <header class="title">
+      <p class="hangman">Hangman</p>
+    </header>
+    <div class="words">     
       <div class="input__word">
-        <input class="input" type="text" maxlength="1" placeholder="Enter text" id="input-value">
+        <input class="input" type="text" maxlength="1" placeholder="Enter letter" id="input-value">
       </div>
-      <div class="random__characters"></div>
-      <div class="letters"></div>
+      <div class="required__word"></div>
+      <div class="used__letters">
+        <p>Used letters:</p>
+        <div class="letters"></div>
+      </div>
+      
     </div>
     <script src="main.js"></script>
   </body>

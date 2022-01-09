@@ -1,9 +1,9 @@
 const showWord = document.querySelector('.words');
 const input = document.querySelector('.input');
-const randomWord = document.querySelector('.random__characters')
+const randomWord = document.querySelector('.required__word')
 const wrongLetters = document.querySelector('.letters');
 
-const words = ['computerc', 'keyboardk', 'mousem', 'phonep', 'laptopl'];
+const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
 let randomString = words[Math.floor(Math.random() * words.length)]
 const wordArray = randomString.split('');
 let missedLetters= '';
@@ -27,7 +27,7 @@ function test() {
     }
 
     if(wordArray.indexOf(inputValue) == -1) {  
-        missedLetters = missedLetters + inputValue;
+        missedLetters = missedLetters + inputValue + ',' + ' ';
     }
     wrongLetters.innerHTML = missedLetters;
 
