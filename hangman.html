@@ -11,8 +11,19 @@
       <p class="hangman">Hangman</p>
     </header>
     <div class="words">     
+      <div class="hangman__timer">
+              
+      </div>
       <div class="input__word">
-        <input class="input" type="text" maxlength="1" placeholder="Enter letter" id="input-value">
+        <div class="timer">
+          <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span>
+        </div> 
+        <div class="controls">
+          <button class="btn__stopwatch" id="start">Start</button>
+          <button class="btn__stopwatch" id="stop">Stop</button>
+          <button class="btn__stopwatch" id="reset">Reset</button>
+        </div>
+        <input class="input" type="text" maxlength="1" placeholder="Enter letter" id="input-value">    
       </div>
       <div class="required__word"></div>
       <div class="used__letters">
