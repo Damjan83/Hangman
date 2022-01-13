@@ -6,7 +6,7 @@ const wrongLetters = document.querySelector('.letters');
 const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
 let randomString = words[Math.floor(Math.random() * words.length)]
 const wordArray = randomString.split('');
-let missedLetters= '';
+let missedLetters = '';
 
 /*-stopwatch-*/
 const timer = document.getElementById('.timer');
@@ -29,46 +29,51 @@ for(let i = 0; i < wordArray.length; i++){
 function test() {
     const lineElements = document.querySelectorAll('.characters');
     const inputValue = input.value;
+    //const correctWord = document.querySelector('.correct__word');
+    const correctString = document.querySelector('.correct__string');
     let countStr = 0;
     
-
     for(let i = 0; i < wordArray.length; i++){
         const word = wordArray[i];
         if(inputValue == word){
             lineElements[i].innerHTML = inputValue;
         }   
-
         if(lineElements[i].innerHTML != ''){
             countStr++;
-           
         }      
-
     }
 
     if(wordArray.indexOf(inputValue) == -1) {  
-        missedLetters = missedLetters + inputValue + ',' + ' ';
+        console.log(missedLetters)
+
+        if(missedLetters.indexOf(inputValue) ==  -1) {
+            missedLetters = missedLetters + inputValue + ',' + ' ';
+        }
     }
-    wrongLetters.innerHTML = missedLetters;
-    
-    if() {
+
+    if(countStr == wordArray.length) {
         console.log('test')
-        
-        
+        correctString.innerHTML = randomString + ',' + ' ';
     }
-    
+
+    wrongLetters.innerHTML = missedLetters;
+
+       
 }
 
 function clearInput() {
     document.getElementById('input-value').value = '';
 }
-
-
+function clearWordArray() {
     
+}
+  
 input.addEventListener('keydown', (event) => {                 
     if(event.code === 'Enter'){                  
         test();
     }
     clearInput();
+    clearWordArray();
 })
  
 
@@ -118,3 +123,5 @@ btnReset.addEventListener('click' , () => {
     appendSeconds.innerHTML = seconds;
     appendMinutes.innerHTML = minutes;
 });
+
+

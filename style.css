@@ -48,10 +48,9 @@ body{
 
 .hangman__timer {
   width: 200px;
-  display: flex;
+  display: block;
   align-items: center;
   justify-content: center;
-  margin-right: 50px;
 }
 
 .input {
@@ -99,7 +98,7 @@ body{
 
 .used__letters {
   width: 300px;
-  height: 100%;
+  height: 50%;
   font-size: 30px;
 }
 
@@ -109,6 +108,16 @@ body{
   text-align: left;
 }
 
+.letters-and-words {
+  width: 300px;
+  height: 100%;
+  display: block;
+}
+.correct__word {
+  width: 100%;
+  height: 50%;
+  font-size: 30px;
+}
 @media screen and (max-width: 768px){
 
   .words {
@@ -132,11 +141,21 @@ body{
 
   .used__letters {
     width: 100%;
-    margin-top: 30px;
+    font-size: 20px;
   }
 
   .letters {
     padding: 0 20px;
+  }
+
+  .correct__word {
+    font-size: 20px;
+  }
+
+  .letters-and-words {
+    display: flex;
+    width: 100%;
+    margin-top: 30px;
   }
 
 }

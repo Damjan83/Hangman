@@ -11,26 +11,30 @@
       <p class="hangman">Hangman</p>
     </header>
     <div class="words">     
-      <div class="hangman__timer">
-              
-      </div>
       <div class="input__word">
-        <div class="timer">
-          <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span>
-        </div> 
-        <div class="controls">
-          <button class="btn__stopwatch" id="start">Start</button>
-          <button class="btn__stopwatch" id="stop">Stop</button>
-          <button class="btn__stopwatch" id="reset">Reset</button>
+        <div class="hangman__timer">
+          <div class="timer">
+            <span id="minutes">00</span>:<span id="seconds">00</span>:<span id="tens">00</span>
+          </div> 
+          <div class="controls">
+            <button class="btn__stopwatch" id="start">Start</button>
+            <button class="btn__stopwatch" id="stop">Stop</button>
+            <button class="btn__stopwatch" id="reset">Reset</button>
+          </div>
         </div>
         <input class="input" type="text" maxlength="1" placeholder="Enter letter" id="input-value">    
       </div>
-      <div class="required__word"></div>
-      <div class="used__letters">
-        <p>Used letters:</p>
-        <div class="letters"></div>
+      <div class="required__word" id="ddd"></div>
+      <div class="letters-and-words">
+        <div class="used__letters">         
+          <p>Missed letters:</p>
+          <div class="letters"></div>
+        </div>
+        <div class="correct__word">
+          <p>Words:</p>
+          <div class="correct__string"></div>
+        </div>
       </div>
-      
     </div>
     <script src="main.js"></script>
   </body>
