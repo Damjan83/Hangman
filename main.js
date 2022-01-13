@@ -41,21 +41,18 @@ function test() {
     }
 
     if(wordArray.indexOf(inputValue) == -1) {  
-        console.log(missedLetters)
 
         if(missedLetters.indexOf(inputValue) ==  -1) {
-            missedLetters = missedLetters + inputValue + ',' + ' ';
+            missedLetters = missedLetters + inputValue + ', ';
         }
     }
 
     if(countStr == wordArray.length) {
-        console.log('test')
         correctString.innerHTML = randomString + ', ';
         //correctWordModal.style.display = 'block';
-
+        
         createWordLine();
     }
-
     wrongLetters.innerHTML = missedLetters;
        
 }
