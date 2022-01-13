@@ -2,10 +2,11 @@ const showWord = document.querySelector('.words');
 const input = document.querySelector('.input');
 const randomWord = document.querySelector('.required__word')
 const wrongLetters = document.querySelector('.letters');
+const correctWordModal = document.querySelector('.correct__word-modal');
 
 const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
-let randomString = words[Math.floor(Math.random() * words.length)]
-const wordArray = randomString.split('');
+let randomString;
+let wordArray;
 let missedLetters = '';
 
 /*-stopwatch-*/
@@ -20,11 +21,7 @@ const btnReset = document.getElementById('reset');
 
 
 /*------Hangman------*/
-for(let i = 0; i < wordArray.length; i++){
-    const appendString = document.createElement('div');
-    appendString.classList.add('characters');  
-    randomWord.appendChild(appendString);
-}
+createWordLine();
 
 function test() {
     const lineElements = document.querySelectorAll('.characters');
@@ -53,27 +50,39 @@ function test() {
 
     if(countStr == wordArray.length) {
         console.log('test')
-        correctString.innerHTML = randomString + ',' + ' ';
+        correctString.innerHTML = randomString + ', ';
+        //correctWordModal.style.display = 'block';
+
+        createWordLine();
     }
 
     wrongLetters.innerHTML = missedLetters;
-
        
 }
 
 function clearInput() {
     document.getElementById('input-value').value = '';
 }
-function clearWordArray() {
-    
-}
+
   
+function createWordLine() {
+    randomString = words[Math.floor(Math.random() * words.length)]
+    wordArray = randomString.split('');
+
+    randomWord.innerHTML = '';
+
+    for(let i = 0; i < wordArray.length; i++){
+        const appendString = document.createElement('div');
+        appendString.classList.add('characters');  
+        randomWord.appendChild(appendString);
+    }
+}
+
 input.addEventListener('keydown', (event) => {                 
     if(event.code === 'Enter'){                  
         test();
     }
     clearInput();
-    clearWordArray();
 })
  
 
@@ -108,7 +117,7 @@ function startTimer() {
     }
 }
 
-btnStart.addEventListener('click' , () => {
+/*btnStart.addEventListener('click' , () => {
     interval = setInterval(startTimer);
 });
 btnStop.addEventListener('click' , () => {
@@ -122,6 +131,6 @@ btnReset.addEventListener('click' , () => {
     appendTens.innerHTML = tens;
     appendSeconds.innerHTML = seconds;
     appendMinutes.innerHTML = minutes;
-});
+});*/
 
 

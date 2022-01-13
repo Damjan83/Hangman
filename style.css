@@ -44,6 +44,7 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 }
 
 .hangman__timer {
@@ -118,6 +119,21 @@ body{
   height: 50%;
   font-size: 30px;
 }
+
+/*.correct__word-modal {
+  display: none;
+  width: 300px;
+  height: 200px;
+  background-color: #FFFFFF;
+  border: 2px solid #000000;
+  border-radius: 10px;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}*/
+
+
 @media screen and (max-width: 768px){
 
   .words {
