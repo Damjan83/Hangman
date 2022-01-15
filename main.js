@@ -30,6 +30,7 @@ function test() {
     const correctString = document.querySelector('.correct__string');
     let countStr = 0;
     
+    
     for(let i = 0; i < wordArray.length; i++){
         const word = wordArray[i];
         if(inputValue == word){
@@ -39,22 +40,22 @@ function test() {
             countStr++;
         }      
     }
-
+    
     if(wordArray.indexOf(inputValue) == -1) {  
 
         if(missedLetters.indexOf(inputValue) ==  -1) {
             missedLetters = missedLetters + inputValue + ', ';
         }
     }
-
-    if(countStr == wordArray.length) {
-        correctString.innerHTML = randomString + ', ';
-        //correctWordModal.style.display = 'block';
+    
+    if(countStr == wordArray.length) {       
+        correctString.innerHTML += randomString + ', ' + '<br>';    
         
+        //correctWordModal.style.display = 'block';               
         createWordLine();
     }
+    
     wrongLetters.innerHTML = missedLetters;
-       
 }
 
 function clearInput() {
@@ -67,7 +68,7 @@ function createWordLine() {
     wordArray = randomString.split('');
 
     randomWord.innerHTML = '';
-
+    
     for(let i = 0; i < wordArray.length; i++){
         const appendString = document.createElement('div');
         appendString.classList.add('characters');  
