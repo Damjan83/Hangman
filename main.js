@@ -49,7 +49,7 @@ function test() {
     }
     
     if(countStr == wordArray.length) {       
-        correctString.innerHTML += randomString + ', ' + '<br>';    
+        correctString.innerHTML += randomString + ', ' + '<br>';
         
         //correctWordModal.style.display = 'block';               
         createWordLine();
@@ -77,7 +77,7 @@ function createWordLine() {
 }
 
 input.addEventListener('keydown', (event) => {                 
-    if(event.code === 'Enter'){                  
+    if(event.keyCode == 13){                  
         test();
     }
     clearInput();
