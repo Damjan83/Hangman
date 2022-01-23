@@ -34,7 +34,7 @@ function test() {
     for(let i = 0; i < wordArray.length; i++){
         const word = wordArray[i];
         if(inputValue == word){
-            lineElements[i].innerHTML = inputValue.toLowerCase();
+            lineElements[i].innerHTML = inputValue;
         }   
         if(lineElements[i].innerHTML != ''){
             countStr++;
