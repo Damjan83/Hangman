@@ -40,23 +40,29 @@ function test() {
             countStr++;
         }      
     }
+
     
     if(wordArray.indexOf(inputValue) == -1) {  
-
+        
         if(missedLetters.indexOf(inputValue) ==  -1) {
-            missedLetters = missedLetters + inputValue + ', ';
+            missedLetters += inputValue + ', ';
         }
     }
+        
     
     if(countStr == wordArray.length) {       
         correctString.innerHTML += randomString + ', ' + '<br>';
-        
-        //correctWordModal.style.display = 'block';               
-        createWordLine();
+        console.log(missedLetters)
+        //correctWordModal.style.display = 'block';
+        missedLetters = '';
+        wrongLetters.innerHTML = '';
+        createWordLine();   
     }
     
     wrongLetters.innerHTML = missedLetters;
+    
 }
+
 
 function clearInput() {
     document.getElementById('input-value').value = '';
@@ -68,7 +74,7 @@ function createWordLine() {
     wordArray = randomString.split('');
 
     randomWord.innerHTML = '';
-    
+
     for(let i = 0; i < wordArray.length; i++){
         const appendString = document.createElement('div');
         appendString.classList.add('characters');  
