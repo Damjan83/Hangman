@@ -23,6 +23,40 @@ const btnStop = document.getElementById('stop');
 const btnReset = document.getElementById('reset');
 
 
+let interval;
+let minutes = 00;
+let seconds = 00;
+let tens = 00;
+
+function startTimer() {
+    tens++;
+    if(tens < 9) {
+        appendTens.innerHTML = '0' + tens;
+    }
+    if(tens > 9) {
+        appendTens.innerHTML = tens;
+    }
+    if(tens > 99) {
+        seconds++;
+        appendSeconds.innerHTML = '0' + seconds;
+        tens = 0;
+        appendTens.innerHTML = '0' + 0;
+    }
+    if(seconds > 9) {
+        appendSeconds.innerHTML = seconds;
+    }
+    if(seconds > 60) {
+        minutes++;
+        appendMinutes.innerHTML = '0' + minutes;
+        seconds = 0;
+        appendSeconds.innerHTML = '0' + 0;
+    }
+}
+
+
+
+
+
 /*------Hangman------*/
 createWordLine();
 
@@ -63,6 +97,7 @@ function test() {
         missedLetters = '';
         wrongLetters.innerHTML = '';
         createWordLine();   
+        
     }
 
     wrongLetters.innerHTML = missedLetters;
@@ -78,7 +113,7 @@ function clearInput() {
 function createWordLine() {
     randomString = words[Math.floor(Math.random() * words.length)]
     wordArray = randomString.split('');
-
+    interval = setInterval(startTimer);
     randomWord.innerHTML = '';
 
     for(let i = 0; i < wordArray.length; i++){
@@ -87,48 +122,21 @@ function createWordLine() {
         randomWord.appendChild(appendString);
     }
 }
+   
 
-    
-
-input.addEventListener('keydown', (event) => {                 
-    if(event.keyCode == 13){    
-        //interval = setInterval(startTimer);              
+input.addEventListener('keydown', (event) => {    
+                 
+    if(event.keyCode == 13){                  
         test();
     }
     clearInput();
+    clearInterval(interval);
+    
 })
  
 
 /*------Stopwatch------*/
-let interval;
-let minutes = 00;
-let seconds = 00;
-let tens = 00;
 
-function startTimer() {
-    tens++;
-    if(tens < 9) {
-        appendTens.innerHTML = '0' + tens;
-    }
-    if(tens > 9) {
-        appendTens.innerHTML = tens;
-    }
-    if(tens > 99) {
-        seconds++;
-        appendSeconds.innerHTML = '0' + seconds;
-        tens = 0;
-        appendTens.innerHTML = '0' + 0;
-    }
-    if(seconds > 9) {
-        appendSeconds.innerHTML = seconds;
-    }
-    if(seconds > 60) {
-        minutes++;
-        appendMinutes.innerHTML = '0' + minutes;
-        seconds = 0;
-        appendSeconds.innerHTML = '0' + 0;
-    }
-}
 
 /*btnStart.addEventListener('click' , () => {
     interval = setInterval(startTimer);
