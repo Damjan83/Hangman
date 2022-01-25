@@ -53,10 +53,6 @@ function startTimer() {
     }
 }
 
-
-
-
-
 /*------Hangman------*/
 createWordLine();
 
@@ -66,7 +62,6 @@ function test() {
     //const correctWord = document.querySelector('.correct__word');
     const correctString = document.querySelector('.correct__string');
     let countStr = 0;
-    
     
     for(let i = 0; i < wordArray.length; i++){
         const word = wordArray[i];
@@ -80,7 +75,7 @@ function test() {
 
     
     if(wordArray.indexOf(inputValue) == -1) {  
-        
+
         if(missedLetters.indexOf(inputValue) ==  -1) {
             missedLetters += inputValue + ', ';
             livesLeft.innerHTML -= 1 ;
@@ -97,7 +92,6 @@ function test() {
         missedLetters = '';
         wrongLetters.innerHTML = '';
         createWordLine();   
-        
     }
 
     wrongLetters.innerHTML = missedLetters;
@@ -113,7 +107,7 @@ function clearInput() {
 function createWordLine() {
     randomString = words[Math.floor(Math.random() * words.length)]
     wordArray = randomString.split('');
-    interval = setInterval(startTimer);
+    //interval = setInterval(startTimer);             
     randomWord.innerHTML = '';
 
     for(let i = 0; i < wordArray.length; i++){
@@ -123,14 +117,11 @@ function createWordLine() {
     }
 }
    
-
-input.addEventListener('keydown', (event) => {    
-                 
-    if(event.keyCode == 13){                  
+input.addEventListener('keydown', (event) => {                    
+    if(event.keyCode == 13){    
         test();
     }
     clearInput();
-    clearInterval(interval);
     
 })
  
