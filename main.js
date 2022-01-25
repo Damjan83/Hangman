@@ -3,11 +3,13 @@ const input = document.querySelector('.input');
 const randomWord = document.querySelector('.required__word')
 const wrongLetters = document.querySelector('.letters');
 const correctWordModal = document.querySelector('.correct__word-modal');
+const livesLeft = document.querySelector('.lives__left');
 
 const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
 let randomString;
 let wordArray;
 let missedLetters = '';
+livesLeft.innerHTML = '5';
 
 /*-stopwatch-*/
 const timer = document.getElementById('.timer');
@@ -46,19 +48,22 @@ function test() {
         
         if(missedLetters.indexOf(inputValue) ==  -1) {
             missedLetters += inputValue + ', ';
+            livesLeft.innerHTML -= 1 ;
+            if(livesLeft.innerHTML <= 0) {
+                console.log('test')
+            }
         }
     }
         
     
     if(countStr == wordArray.length) {       
         correctString.innerHTML += randomString + ', ' + '<br>';
-        console.log(missedLetters)
         //correctWordModal.style.display = 'block';
         missedLetters = '';
         wrongLetters.innerHTML = '';
         createWordLine();   
     }
-    
+
     wrongLetters.innerHTML = missedLetters;
     
 }
@@ -82,8 +87,11 @@ function createWordLine() {
     }
 }
 
+    
+
 input.addEventListener('keydown', (event) => {                 
-    if(event.keyCode == 13){                  
+    if(event.keyCode == 13){    
+        interval = setInterval(startTimer);              
         test();
     }
     clearInput();
