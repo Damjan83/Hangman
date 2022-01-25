@@ -29,18 +29,27 @@ body{
 .title {
   width: 100%;
   height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.hangman {
-  font-size: 40px;
+.headline {
+  font-size: 2.5em;
 }
-.words{
+
+.img__hangman {
+  width: 2.8125rem;
+  height: auto;
+  margin-right: 10px;
+}
+
+.hangman{
     width: 100%;
-    height: 500px; 
+    height: 31.25rem; 
     background-color: lightblue;
     margin: 0 auto;
     color: black;
-    font-size: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -48,33 +57,34 @@ body{
 }
 
 .hangman__timer {
-  width: 200px;
+  width: 12.5rem;
   display: block;
   align-items: center;
   justify-content: center;
+  font-size: 1.875em;
 }
 
 .input {
-  width: 160px;
+  width: 10rem;
   font-size: 30px;
   text-align: center;
-  border-radius: 10px;
-  border: 1px solid black;
+  border-radius: 0.625rem;
+  border: 0.0625rem solid black;
 }
 
 .characters {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   background-color: transparent;
-  border-bottom: 1px solid black;
-  margin-right: 10px;
+  border-bottom: 0.0625rem solid black;
+  margin-right: 0.625rem;
 }
 
 .input__word {
-  margin-right: 50px;
+  margin-right: 3.125rem;
   display: block;
   align-items: center;
   justify-content: center;
@@ -98,9 +108,12 @@ body{
 }
 
 .used__letters {
-  width: 300px;
+  width: 18.75rem;
   height: 50%;
-  font-size: 30px;
+}
+
+.missed__letters {
+  font-size: 1.875em;
 }
 
 .letters {
@@ -110,77 +123,113 @@ body{
 }
 
 .letters-and-words {
-  width: 300px;
+  width: 18.75rem;
   height: 100%;
   display: block;
 }
 .correct__word {
   width: 100%;
   height: 50%;
-  font-size: 30px;
+  font-size: 1em;
 }
 
-/*.correct__word-modal {
+.words {
+  font-size: 1.875em;
+}
+
+.correct__word-modal {
   display: none;
-  width: 300px;
-  height: 200px;
+  width: 18.75rem;
+  height: 12.5rem;
   background-color: #FFFFFF;
-  border: 2px solid #000000;
-  border-radius: 10px;
+  border: 0.125rem solid #000000;
+  border-radius: 0.625rem;
   position: absolute;
   top: 25%;
   left: 50%;
   transform: translate(-50%, -50%);
-}*/
+}
+
+.game__over-modal {
+  display: none;
+  width: 18.75rem;
+  height: 7.5rem;
+  background-color: #FFFFFF;
+  border: 0.125rem solid #000000;
+  border-radius: 0.625rem;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
 
 .lives {
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 1.875em;
 }
 
 .lives__left {
-  margin-left: 10px;
+  margin-left: 0.625rem;
+}
+
+.play__again {
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1.25rem;
+}
+
+.btn__play {
+  width: 100px;
+  height: 30px;
+  border: none;
+  border-radius: 5px;
+  background-color: #90EE90;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px){
 
-  .words {
+  .hangman {
     display: block;
     margin: 0 auto;
   }
 
   .hangman__timer {
     margin: 0 auto;
-    padding-top: 20px;
+    padding-top: 1.25rem;
   }
 
   .input__word {
     margin: 0 0 20px 0;
-    padding-top: 20px;
+    padding-top: 1.25rem;
   }
 
   .required__word {
-    padding: 0 20px;
+    padding: 0 1.25rem;
   }
 
   .used__letters {
     width: 100%;
-    font-size: 20px;
+    font-size: 0.625em;
   }
 
   .letters {
-    padding: 0 20px;
+    padding: 0 1.25rem;
   }
 
   .correct__word {
-    font-size: 20px;
+    font-size: 0.625em;
   }
 
   .letters-and-words {
     display: flex;
     width: 100%;
-    margin-top: 30px;
+    margin-top: 1.875rem;
   }
 
 }

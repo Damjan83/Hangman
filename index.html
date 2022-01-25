@@ -8,9 +8,10 @@
 </head>
   <body>
     <header class="title">
-      <p class="hangman">Hangman</p>
+      <img class="img__hangman" src="./hangman.png" alt="hangman">
+      <p class="headline">Hangman</p>
     </header>
-    <div class="words">     
+    <div class="hangman">     
       <div class="input__word">
         <div class="lives">
           <p>Lives:</p>
@@ -31,20 +32,27 @@
       <div class="required__word"></div>
       <div class="letters-and-words">
         <div class="used__letters">         
-          <p>Missed letters:</p>
+          <p class="missed__letters">Missed letters:</p>
           <div class="letters"></div>
         </div>
         <div class="correct__word">
-          <p>Words:</p>
+          <p class="words">Words:</p>
           <div class="correct__string"></div>
         </div>
       </div>
-      <!--<div class="correct__word-modal">
+
+      <div class="correct__word-modal">
         Congratulations! You guessed the right word
-        <button class="btn__play">Play again</button>
-      </div>-->
-        <!--<div class="game__over-modal"></div>-->
-    </div>
+        <div class="play__again">
+          <button class="btn__play">Play again</button>
+        </div>       
+      </div>
+      <div class="game__over-modal">Game Over
+        <div class="play__again">
+          <button class="btn__play">Play again</button>
+        </div>
+      </div>
+    </div>  
     <script src="main.js"></script>
   </body>
 </html>

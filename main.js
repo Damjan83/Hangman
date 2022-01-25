@@ -3,6 +3,7 @@ const input = document.querySelector('.input');
 const randomWord = document.querySelector('.required__word')
 const wrongLetters = document.querySelector('.letters');
 const correctWordModal = document.querySelector('.correct__word-modal');
+const gameOverModal = document.querySelector('.game__over-modal');
 const livesLeft = document.querySelector('.lives__left');
 
 const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
@@ -50,7 +51,7 @@ function test() {
             missedLetters += inputValue + ', ';
             livesLeft.innerHTML -= 1 ;
             if(livesLeft.innerHTML <= 0) {
-                console.log('test')
+                gameOverModal.style.display = 'block';
             }
         }
     }
@@ -58,7 +59,7 @@ function test() {
     
     if(countStr == wordArray.length) {       
         correctString.innerHTML += randomString + ', ' + '<br>';
-        //correctWordModal.style.display = 'block';
+        correctWordModal.style.display = 'block';
         missedLetters = '';
         wrongLetters.innerHTML = '';
         createWordLine();   
@@ -91,7 +92,7 @@ function createWordLine() {
 
 input.addEventListener('keydown', (event) => {                 
     if(event.keyCode == 13){    
-        interval = setInterval(startTimer);              
+        //interval = setInterval(startTimer);              
         test();
     }
     clearInput();
