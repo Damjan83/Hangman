@@ -95,12 +95,14 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
-/*.btn__stopwatch {
+.btn__stopwatch {
   width: 50px;
   height: 20px;
-}*/
+  border-radius: 5px;
+}
 
 .required__word {
   display: flex;

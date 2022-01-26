@@ -2,6 +2,7 @@ const showWord = document.querySelector('.words');
 const input = document.querySelector('.input');
 const randomWord = document.querySelector('.required__word')
 const wrongLetters = document.querySelector('.letters');
+const correctString = document.querySelector('.correct__string');
 const correctWordModal = document.querySelector('.correct__word-modal');
 const gameOverModal = document.querySelector('.game__over-modal');
 const livesLeft = document.querySelector('.lives__left');
@@ -22,36 +23,10 @@ const btnStart = document.getElementById('start');
 const btnStop = document.getElementById('stop');
 const btnReset = document.getElementById('reset');
 
-
 let interval;
 let minutes = 00;
 let seconds = 00;
 let tens = 00;
-
-function startTimer() {
-    tens++;
-    if(tens < 9) {
-        appendTens.innerHTML = '0' + tens;
-    }
-    if(tens > 9) {
-        appendTens.innerHTML = tens;
-    }
-    if(tens > 99) {
-        seconds++;
-        appendSeconds.innerHTML = '0' + seconds;
-        tens = 0;
-        appendTens.innerHTML = '0' + 0;
-    }
-    if(seconds > 9) {
-        appendSeconds.innerHTML = seconds;
-    }
-    if(seconds > 60) {
-        minutes++;
-        appendMinutes.innerHTML = '0' + minutes;
-        seconds = 0;
-        appendSeconds.innerHTML = '0' + 0;
-    }
-}
 
 /*------Hangman------*/
 createWordLine();
@@ -59,8 +34,6 @@ createWordLine();
 function test() {
     const lineElements = document.querySelectorAll('.characters');
     const inputValue = input.value;
-    //const correctWord = document.querySelector('.correct__word');
-    const correctString = document.querySelector('.correct__string');
     let countStr = 0;
     
     for(let i = 0; i < wordArray.length; i++){
@@ -68,7 +41,7 @@ function test() {
         if(inputValue == word){
             lineElements[i].innerHTML = inputValue;
         }   
-        if(lineElements[i].innerHTML != ''){
+        if(lineElements[i].innerHTML != '') {
             countStr++;
         }      
     }
@@ -119,6 +92,7 @@ function createWordLine() {
 input.addEventListener('keydown', (event) => {                    
     if(event.keyCode == 13){      
         test();
+        interval = setInterval(startTimer);
     }
     clearInput();
     
@@ -126,9 +100,32 @@ input.addEventListener('keydown', (event) => {
  
 
 /*------Stopwatch------*/
+function startTimer() {
+    tens++;
+    if(tens < 9) {
+        appendTens.innerHTML = '0' + tens;
+    }
+    if(tens > 9) {
+        appendTens.innerHTML = tens;
+    }
+    if(tens > 99) {
+        seconds++;
+        appendSeconds.innerHTML = '0' + seconds;
+        tens = 0;
+        appendTens.innerHTML = '0' + 0;
+    }
+    if(seconds > 9) {
+        appendSeconds.innerHTML = seconds;
+    }
+    if(seconds > 60) {
+        minutes++;
+        appendMinutes.innerHTML = '0' + minutes;
+        seconds = 0;
+        appendSeconds.innerHTML = '0' + 0;
+    }
+}
 
-
-/*btnStart.addEventListener('click' , () => {
+btnStart.addEventListener('click' , () => {
     interval = setInterval(startTimer);
 });
 btnStop.addEventListener('click' , () => {
@@ -142,6 +139,6 @@ btnReset.addEventListener('click' , () => {
     appendTens.innerHTML = tens;
     appendSeconds.innerHTML = seconds;
     appendMinutes.innerHTML = minutes;
-});*/
+});
 
 
