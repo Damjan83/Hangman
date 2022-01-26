@@ -7,7 +7,7 @@ const correctWordModal = document.querySelector('.correct__word-modal');
 const gameOverModal = document.querySelector('.game__over-modal');
 const livesLeft = document.querySelector('.lives__left');
 
-const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
+const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop' , 'button' , 'snowboard' , 'joystick'];
 let randomString;
 let wordArray;
 let missedLetters = '';
