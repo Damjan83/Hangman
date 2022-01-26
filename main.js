@@ -106,8 +106,7 @@ function clearInput() {
   
 function createWordLine() {
     randomString = words[Math.floor(Math.random() * words.length)]
-    wordArray = randomString.split('');
-    //interval = setInterval(startTimer);             
+    wordArray = randomString.split('');         
     randomWord.innerHTML = '';
 
     for(let i = 0; i < wordArray.length; i++){
@@ -118,7 +117,7 @@ function createWordLine() {
 }
    
 input.addEventListener('keydown', (event) => {                    
-    if(event.keyCode == 13){    
+    if(event.keyCode == 13){      
         test();
     }
     clearInput();
