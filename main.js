@@ -7,26 +7,30 @@ const correctWordModal = document.querySelector('.correct__word-modal');
 const gameOverModal = document.querySelector('.game__over-modal');
 const livesLeft = document.querySelector('.lives__left');
 
-const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop' , 'button' , 'snowboard' , 'joystick'];
+const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
 let randomString;
 let wordArray;
 let missedLetters = '';
 livesLeft.innerHTML = '5';
 
 /*-stopwatch-*/
-const timer = document.getElementById('.timer');
-const appendMinutes = document.getElementById('minutes');
-const appendSeconds = document.getElementById('seconds');
-const appendTens = document.getElementById('tens');
+let startTime;
+let elapsedTime = 0;
+let timerInterval;
 
-const btnStart = document.getElementById('start');
-const btnStop = document.getElementById('stop');
-const btnReset = document.getElementById('reset');
+
+const timer = document.getElementById('.timer');
+const appendMinutes = document.getElementById('time');
+
+//const btnStart = document.getElementById('start');
+//const btnStop = document.getElementById('stop');
+//const btnReset = document.getElementById('reset');
 
 let interval;
 let minutes = 00;
 let seconds = 00;
 let tens = 00;
+let saveTime;
 
 /*------Hangman------*/
 createWordLine();
@@ -38,8 +42,8 @@ function test() {
     
     for(let i = 0; i < wordArray.length; i++){
         const word = wordArray[i];
-        if(inputValue == word){
-            lineElements[i].innerHTML = inputValue;
+        if(inputValue.toLowerCase() == word.toLowerCase()) {
+            lineElements[i].innerHTML = inputValue.toLowerCase();
         }   
         if(lineElements[i].innerHTML != '') {
             countStr++;
@@ -54,29 +58,29 @@ function test() {
             livesLeft.innerHTML -= 1 ;
             if(livesLeft.innerHTML <= 0) {
                 gameOverModal.style.display = 'block';
+                reset();
             }
         }
     }
         
     
     if(countStr == wordArray.length) {       
-        correctString.innerHTML += randomString + ', ' + '<br>';
-        correctWordModal.style.display = 'block';
+        correctString.innerHTML += randomString + '&nbsp' + '(' + saveTime + ')' + '<br>';
+        correctWordModal.style.display = 'block'; 
         missedLetters = '';
         wrongLetters.innerHTML = '';
-        createWordLine();   
+        createWordLine();
+        reset();      
     }
 
     wrongLetters.innerHTML = missedLetters;
     
 }
 
-
 function clearInput() {
     document.getElementById('input-value').value = '';
 }
 
-  
 function createWordLine() {
     randomString = words[Math.floor(Math.random() * words.length)]
     wordArray = randomString.split('');         
@@ -88,57 +92,58 @@ function createWordLine() {
         randomWord.appendChild(appendString);
     }
 }
+
+/*------Stopwatch------*/
+function startTimer(time) {
+    let diffInHrs = time / 3600000;
+    let hh = Math.floor(diffInHrs);
+  
+    let diffInMin = (diffInHrs - hh) * 60;
+    let mm = Math.floor(diffInMin);
+  
+    let diffInSec = (diffInMin - mm) * 60;
+    let ss = Math.floor(diffInSec);
+  
+    let diffInMs = (diffInSec - ss) * 100;
+    let ms = Math.floor(diffInMs);
+  
+    let formattedMM = mm.toString().padStart(2, "0");
+    let formattedSS = ss.toString().padStart(2, "0");
+    let formattedMS = ms.toString().padStart(2, "0");
+  
+    return `${formattedMM}:${formattedSS}:${formattedMS}`;
+}
+
+function start() {
+    startTime = Date.now() - elapsedTime;
+    timerInterval = setInterval(function printTime() {
+      elapsedTime = Date.now() - startTime;
+      appendMinutes.innerHTML = startTimer(elapsedTime)
+      saveTime = startTimer(elapsedTime);
+    }, 10);
+}
+  
+function reset() {
+    clearInterval(timerInterval);
+    appendMinutes.innerHTML = "00:00:00";
+    elapsedTime = 0;
+}
+
+function stop() {
+    clearInterval(timerInterval);
+}
    
 input.addEventListener('keydown', (event) => {                    
     if(event.keyCode == 13){      
         test();
-        interval = setInterval(startTimer);
+        start();
     }
     clearInput();
     
 })
- 
 
-/*------Stopwatch------*/
-function startTimer() {
-    tens++;
-    if(tens < 9) {
-        appendTens.innerHTML = '0' + tens;
-    }
-    if(tens > 9) {
-        appendTens.innerHTML = tens;
-    }
-    if(tens > 99) {
-        seconds++;
-        appendSeconds.innerHTML = '0' + seconds;
-        tens = 0;
-        appendTens.innerHTML = '0' + 0;
-    }
-    if(seconds > 9) {
-        appendSeconds.innerHTML = seconds;
-    }
-    if(seconds > 60) {
-        minutes++;
-        appendMinutes.innerHTML = '0' + minutes;
-        seconds = 0;
-        appendSeconds.innerHTML = '0' + 0;
-    }
-}
-
-btnStart.addEventListener('click' , () => {
-    interval = setInterval(startTimer);
-});
-btnStop.addEventListener('click' , () => {
-    clearInterval(interval);
-});
-btnReset.addEventListener('click' , () => {
-    clearInterval(interval);
-    tens = '00';
-    seconds = '00';
-    minutes = '00';
-    appendTens.innerHTML = tens;
-    appendSeconds.innerHTML = seconds;
-    appendMinutes.innerHTML = minutes;
-});
+//btnStart.addEventListener('click', start);
+//btnStop.addEventListener('click', stop);
+//btnReset.addEventListener('click', reset);
 
 
