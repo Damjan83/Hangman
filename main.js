@@ -6,12 +6,14 @@ const correctString = document.querySelector('.correct__string');
 const correctWordModal = document.querySelector('.correct__word-modal');
 const gameOverModal = document.querySelector('.game__over-modal');
 const livesLeft = document.querySelector('.lives__left');
+const wordsNumLeft = document.querySelector('.words__number-left')
 
 const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
 let randomString;
 let wordArray;
 let missedLetters = '';
 livesLeft.innerHTML = '5';
+wordsNumLeft.innerHTML = '5';
 
 /*-stopwatch-*/
 let startTime;
@@ -65,17 +67,29 @@ function test() {
         
     
     if(countStr == wordArray.length) {       
-        correctString.innerHTML += randomString + '&nbsp' + '(' + saveTime + ')' + '<br>';
-        correctWordModal.style.display = 'block'; 
+        correctString.innerHTML += randomString + ' (' + saveTime + ')' + '<br>'; 
+        wordsNumLeft.innerHTML -= 1;
         missedLetters = '';
         wrongLetters.innerHTML = '';
         createWordLine();
-        reset();      
+        reset();
+
+        setTimeout (function() {
+            correctWordModal.style.display = 'none'; 
+
+        }, 2000)
+    }
+
+    if(wordsNumLeft.innerHTML <= 0) {
+        correctWordModal.style.display = 'block';
+        document.getElementById('input-value').disabled = true;
     }
 
     wrongLetters.innerHTML = missedLetters;
     
 }
+
+
 
 function clearInput() {
     document.getElementById('input-value').value = '';
@@ -142,8 +156,8 @@ input.addEventListener('keydown', (event) => {
     
 })
 
-//btnStart.addEventListener('click', start);
-//btnStop.addEventListener('click', stop);
-//btnReset.addEventListener('click', reset);
 
-
+// Reci da se pokazuju samo jednom
+// Da se prikaze broj reci koji se smanjuje kada se pogodi rec
+// Modal da se pokazuje na kraju (finish) 
+// Kada se zavrsi igra, treba da se zaustavi vreme i da se iskljuci input
