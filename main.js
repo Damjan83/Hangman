@@ -19,6 +19,7 @@ wordsNumLeft.innerHTML = '5';
 let startTime;
 let elapsedTime = 0;
 let timerInterval;
+let isActiveTime = false;
 
 
 const timer = document.getElementById('.timer');
@@ -73,16 +74,18 @@ function test() {
         wrongLetters.innerHTML = '';
         createWordLine();
         reset();
+        isActiveTime = false;
 
         setTimeout (function() {
             correctWordModal.style.display = 'none'; 
-
         }, 2000)
     }
 
     if(wordsNumLeft.innerHTML <= 0) {
         correctWordModal.style.display = 'block';
         document.getElementById('input-value').disabled = true;
+        isActiveTime = true;
+        reset();
     }
 
     wrongLetters.innerHTML = missedLetters;
@@ -148,9 +151,12 @@ function stop() {
 }
    
 input.addEventListener('keydown', (event) => {                    
-    if(event.keyCode == 13){      
+    if(event.keyCode == 13) {
         test();
-        start();
+
+        if(!isActiveTime) start();
+
+        isActiveTime = true;
     }
     clearInput();
     
@@ -158,6 +164,8 @@ input.addEventListener('keydown', (event) => {
 
 
 // Reci da se pokazuju samo jednom
-// Da se prikaze broj reci koji se smanjuje kada se pogodi rec
-// Modal da se pokazuje na kraju (finish) 
-// Kada se zavrsi igra, treba da se zaustavi vreme i da se iskljuci input
+
+
+//napraviti novi prazan niz, kada kreiras niz rec mora da se uzme prva rec iz starog niza i 
+// da se smestim u novi niz, ako postoji nova rec u nizu ne dodaje ako ne postoji dodaj
+//ispis iz novog niza
