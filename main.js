@@ -34,9 +34,12 @@ let minutes = 00;
 let seconds = 00;
 let tens = 00;
 let saveTime;
+let newRandomStrArray = [];
 
 /*------Hangman------*/
 createWordLine();
+
+
 
 function test() {
     const lineElements = document.querySelectorAll('.characters');
@@ -99,7 +102,18 @@ function clearInput() {
 }
 
 function createWordLine() {
-    randomString = words[Math.floor(Math.random() * words.length)]
+
+    console.log(';t')
+    const shuffledArray = words.sort((a, b) => 0.5 - Math.random());
+    
+    for(let i = 0; i < shuffledArray.length; i++) {
+         if(newRandomStrArray.indexOf(words[i]) == -1) {
+            newRandomStrArray.push(words[i]);
+            randomString = words[i]
+            break;
+         }
+    }
+
     wordArray = randomString.split('');         
     randomWord.innerHTML = '';
 
@@ -109,6 +123,8 @@ function createWordLine() {
         randomWord.appendChild(appendString);
     }
 }
+
+
 
 /*------Stopwatch------*/
 function startTimer(time) {
