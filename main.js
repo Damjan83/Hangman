@@ -6,13 +6,17 @@ const correctString = document.querySelector('.correct__string');
 const correctWordModal = document.querySelector('.correct__word-modal');
 const gameOverModal = document.querySelector('.game__over-modal');
 const livesLeft = document.querySelector('.lives__left');
-const wordsNumLeft = document.querySelector('.words__number-left')
+const wordsNumLeft = document.querySelector('.words__number-left');
+const timer = document.getElementById('.timer');
+const appendMinutes = document.getElementById('time');
+const hangmanBodyparts = document.querySelectorAll('.hangman__body');
+
 
 const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
 let randomString;
 let wordArray;
 let missedLetters = '';
-livesLeft.innerHTML = '5';
+livesLeft.innerHTML = '6';
 wordsNumLeft.innerHTML = '5';
 
 /*-stopwatch-*/
@@ -22,23 +26,17 @@ let timerInterval;
 let isActiveTime = false;
 
 
-const timer = document.getElementById('.timer');
-const appendMinutes = document.getElementById('time');
-
-//const btnStart = document.getElementById('start');
-//const btnStop = document.getElementById('stop');
-//const btnReset = document.getElementById('reset');
-
 let interval;
 let minutes = 00;
 let seconds = 00;
 let tens = 00;
 let saveTime;
 let newRandomStrArray = [];
+let missedLettersArray = [];
+
 
 /*------Hangman------*/
 createWordLine();
-
 
 
 function test() {
@@ -60,8 +58,25 @@ function test() {
     if(wordArray.indexOf(inputValue) == -1) {  
 
         if(missedLetters.indexOf(inputValue) ==  -1) {
-            missedLetters += inputValue + ', ';
+            missedLetters += inputValue + ', ';            
             livesLeft.innerHTML -= 1 ;
+            missedLettersArray.push(inputValue);
+            
+
+            if(missedLettersArray.length == 1) {
+                hangmanBodyparts[0].style.display = 'block'
+            }else if(missedLettersArray.length == 2) {
+                hangmanBodyparts[1].style.display = 'block'
+            }else if(missedLettersArray.length == 3) {
+                hangmanBodyparts[2].style.display = 'block'
+            }else if(missedLettersArray.length == 4) {
+                hangmanBodyparts[3].style.display = 'block'
+            }else if(missedLettersArray.length == 5) {
+                hangmanBodyparts[4].style.display = 'block'
+            }else if(missedLettersArray.length == 6) {
+                hangmanBodyparts[5].style.display = 'block'
+            }
+
             if(livesLeft.innerHTML <= 0) {
                 gameOverModal.style.display = 'block';
                 reset();
@@ -96,14 +111,11 @@ function test() {
 }
 
 
-
 function clearInput() {
     document.getElementById('input-value').value = '';
 }
 
 function createWordLine() {
-
-    console.log(';t')
     const shuffledArray = words.sort((a, b) => 0.5 - Math.random());
     
     for(let i = 0; i < shuffledArray.length; i++) {
@@ -177,11 +189,7 @@ input.addEventListener('keydown', (event) => {
     clearInput();
     
 })
+ 
 
 
-// Reci da se pokazuju samo jednom
 
-
-//napraviti novi prazan niz, kada kreiras niz rec mora da se uzme prva rec iz starog niza i 
-// da se smestim u novi niz, ako postoji nova rec u nizu ne dodaje ako ne postoji dodaj
-//ispis iz novog niza
