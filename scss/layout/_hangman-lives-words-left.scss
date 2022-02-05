@@ -1,0 +1,10 @@
+.lives, .words__number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.875em;
+  }
+  
+  .lives__left, .words__number-left {
+    margin-left: 0.625rem;
+  }

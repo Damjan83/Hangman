@@ -1,0 +1,16 @@
+.hangman{
+    width: 100%;
+    height: 31.25rem; 
+    background-color: map-get($color , c-hangman);
+    margin: 0 auto;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    @include for-size(phone-large) {
+        display: block;
+        margin: 0 auto;
+    }
+}

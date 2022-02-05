@@ -1,0 +1,11 @@
+.hangman__timer {
+  width: 12.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.875em;  
+
+  @include for-size(phone-large) {   
+    margin: 0 auto;
+  }
+}

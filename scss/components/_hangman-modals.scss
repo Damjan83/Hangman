@@ -1,0 +1,50 @@
+.correct__word-modal {
+    display: none;
+    width: 18.75rem;
+    height: 8.7rem;
+    background-color: #FFFFFF;
+    border: 0.125rem solid #000000;
+    border-radius: 0.625rem;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+    @include for-size(phone-large) {
+        width: 15.75rem;
+        height: 5.7rem;
+    }
+}
+  
+.congrats, .lose__game {
+    width: 100%;
+    height: 100%;
+    font-size: 2.1875em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include for-size(phone-large) {
+        font-size: 1.375em;
+        padding: 0 2rem;
+    }
+}
+  
+  
+.game__over-modal {
+    height: 5.5rem;
+    display: none; 
+    width: 18.75rem;
+    height: 3.5rem;
+    background-color: #FFFFFF;
+    border: 0.125rem solid #000000;
+    border-radius: 0.625rem;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include for-size(phone-large) {
+        height: 5.5rem;       
+    }
+}

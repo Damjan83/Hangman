@@ -147,13 +147,6 @@ body{
   justify-content: center;
 }
 
-.controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
 .required__word {
   display: flex;
   align-items: center;
@@ -294,7 +287,7 @@ body{
 
   .congrats {
     font-size: 1.375em;
-    padding: 0 2rems;
+    padding: 0 2rem;
   }
 
   .game__over-modal {
