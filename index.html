@@ -3,20 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="dist/css/main.css"> 
   <title>Hangman</title>
 </head>
   <body>
     <header class="title">
       <div class="hangman__photo">
-        <img class="img__hangman" src="./images/hang.png" alt="hangman">
+        <img class="img__hangman" src="dist/assets/images/hang.png" alt="hangman">
         <div class="hangman__bodyparts">
-          <img class="hangman__body hangman__bodyparts-head" src="./images/hangman head.png" alt="hangman">
-          <img class="hangman__body hangman__bodyparts-body" src="./images/hangman body.png" alt="hangman">
-          <img class="hangman__body hangman__bodyparts-left-hand" src="./images/hangman left hand.png" alt="hangman">
-          <img class="hangman__body hangman__bodyparts-right-hand" src="./images/hangman right hand.png" alt="hangman">
-          <img class="hangman__body hangman__bodyparts-left-leg" src="./images/hangman left leg.png" alt="hangaman">
-          <img class="hangman__body hangman__bodyparts-right-leg" src="./images/hangman right leg.png" alt="hangman">
+          <img class="hangman__body hangman__bodyparts-head" src="dist/assets/images/hangman head.png" alt="hangman">
+          <img class="hangman__body hangman__bodyparts-body" src="dist/assets/images/hangman body.png" alt="hangman">
+          <img class="hangman__body hangman__bodyparts-left-hand" src="dist/assets/images/hangman left hand.png" alt="hangman">
+          <img class="hangman__body hangman__bodyparts-right-hand" src="dist/assets/images/hangman right hand.png" alt="hangman">
+          <img class="hangman__body hangman__bodyparts-left-leg" src="dist/assets/images/hangman left leg.png" alt="hangaman">
+          <img class="hangman__body hangman__bodyparts-right-leg" src="dist/assets/images/hangman right leg.png" alt="hangman">
         </div>
       </div>   
       <p class="headline">Hangman</p>
@@ -35,13 +35,6 @@
           <div class="timer">
             <span id="time">00:00:00</span>
           </div> 
-
-            <!--<div class="controls">
-            <button class="btn__stopwatch" id="start">Start</button>
-            <button class="btn__stopwatch" id="stop">Stop</button>
-            <button class="btn__stopwatch" id="reset">Reset</button>
-          </div>-->
-          
         </div>
         <input class="input" type="text" maxlength="1" placeholder="Enter letter" id="input-value">    
       </div>
@@ -64,6 +57,6 @@
         <p class="lose__game">Game Over</p>
       </div>
     </div>  
-    <script src="main.js"></script>
+    <script src="dist/js/main.js"></script>
   </body>
 </html>

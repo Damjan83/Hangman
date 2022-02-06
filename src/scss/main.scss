@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Commissioner:wght@400;500;700&display=swap');
 
-@import 'scss/base/_config';
-@import 'scss/config/_mediaQueries';
+@import './base/_config';
+@import './config/_mediaQueries';
 
 @import 'components/_header';
 @import 'components/hangman-bodyparts';

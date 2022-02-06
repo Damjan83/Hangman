@@ -27,9 +27,9 @@ let isActiveTime = false;
 
 
 let interval;
-let minutes = 00;
-let seconds = 00;
-let tens = 00;
+//var minutes = 00;
+//var seconds = 00;
+//var tens = 00;
 let saveTime;
 let newRandomStrArray = [];
 let missedLettersArray = [];
