@@ -10,9 +10,11 @@ const wordsNumLeft = document.querySelector('.words__number-left');
 const timer = document.getElementById('.timer');
 const appendMinutes = document.getElementById('time');
 const hangmanBodyparts = document.querySelectorAll('.hangman__body');
+const startContainer = document.querySelector('.start');
+const startBtn = document.querySelector('.start__container-btn');
 
 
-const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop'];
+const words = ['computer', 'keyboard', 'mouse', 'phone', 'laptop', 'processor', 'memory', 'power', 'speakers', 'graphics'];
 let randomString;
 let wordArray;
 let missedLetters = '';
@@ -25,19 +27,17 @@ let elapsedTime = 0;
 let timerInterval;
 let isActiveTime = false;
 
-
 let interval;
-//var minutes = 00;
-//var seconds = 00;
-//var tens = 00;
 let saveTime;
 let newRandomStrArray = [];
 let missedLettersArray = [];
 
+startBtn.addEventListener('click', () => {
+    startContainer.style.display = 'none';
+});
 
 /*------Hangman------*/
 createWordLine();
-
 
 function test() {
     const lineElements = document.querySelectorAll('.characters');

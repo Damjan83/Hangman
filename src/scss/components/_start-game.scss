@@ -1,0 +1,36 @@
+.start {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: map-get($color , c-dark);
+    opacity: 0.7;
+    z-index: 2;
+    display: flex;
+}
+
+.start__container {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.start__container-title {
+    width: 100%;
+    height: auto;
+    font-size: 4.375rem;
+    color: map-get($color , c-header);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 3.125rem;
+}
+
+.start__container-text {
+    font-size: 1.875em;
+    color: map-get($color , c-header);
+}
