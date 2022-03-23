@@ -1,10 +1,33 @@
+.letters-and-words {
+    display: block;
+    text-align: center;
+    
+    @include for-size(phone-large) {
+        display: flex;
+        width: 100%;
+        margin-top: 1.875rem;
+    }
+
+    @include for-size(desktop-small) {
+        display: flex;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-top: 1.875rem;
+    }
+}
+
 .used__letters {
-    width: 18.75rem;
-    height: 50%;
+    margin-bottom: 6.25rem;
 
     @include for-size(phone-large) {
         width: 100%;
         font-size: 0.625em;
+        margin: 0;
+    }
+
+    @include for-size(desktop-small) {
+        margin: 0 6.25rem 0 0;
     }
 }
   
@@ -24,25 +47,14 @@
    
 }
   
-.letters-and-words {
-    width: 18.75rem;
-    height: 100%;
-    display: block;
-    text-align: center;
-    
-    @include for-size(phone-large) {
-        display: flex;
-        width: 100%;
-        margin-top: 1.875rem;
-    }
-}
+
 
 .correct__word {
-    width: 100%;
-    height: 50%;
     font-size: 1em;
 
     @include for-size(phone-large) {
+        width: 100%;
+        height: 50%;
         font-size: 0.625em;
     }
 }

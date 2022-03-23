@@ -29,23 +29,26 @@
       <p class="headline">Hangman</p>
     </header>
     <div class="hangman">     
-      <div class="input__word">
-        <div class="lives">
-          <p>Lives:</p>
-          <p class="lives__left"></p>
+     
+        <div class="input__word">
+          <div class="lives">
+            <p>Lives:</p>
+            <p class="lives__left"></p>
+          </div>
+          <div class="words__number">
+            <p>Words:</p>
+            <div class="words__number-left"></div>
+          </div>
+          <div class="hangman__timer">
+            <div class="timer">
+              <span id="time">00:00:00</span>
+            </div> 
+          </div>
+          <input class="input" type="text" maxlength="1" placeholder="Enter letter" id="input-value">    
         </div>
-        <div class="words__number">
-          <p>Words:</p>
-          <div class="words__number-left"></div>
-        </div>
-        <div class="hangman__timer">
-          <div class="timer">
-            <span id="time">00:00:00</span>
-          </div> 
-        </div>
-        <input class="input" type="text" maxlength="1" placeholder="Enter letter" id="input-value">    
-      </div>
-      <div class="required__word"></div>
+        <div class="required__word"></div>
+     
+      
       <div class="letters-and-words">
         <div class="used__letters">         
           <p class="missed__letters">Missed letters:</p>
