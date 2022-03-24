@@ -79,6 +79,7 @@ function test() {
 
             if(livesLeft.innerHTML <= 0) {
                 gameOverModal.style.display = 'block';
+                document.getElementById('input-value').disabled = true;
                 reset();
             }
         }
@@ -101,7 +102,6 @@ function test() {
 
     if(wordsNumLeft.innerHTML <= 0) {
         correctWordModal.style.display = 'block';
-        document.getElementById('input-value').disabled = true;
         isActiveTime = true;
         reset();
     }
